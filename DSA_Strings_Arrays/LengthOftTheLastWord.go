@@ -2,12 +2,12 @@ package dsastringsarrays
 
 func LengthOfTheLastWord(s string) int {
 	count := 0
-	i := len(s) - 1
-	for i >= 0 && s[i] == ' ' {
-		i--
+	index := len(s) - 1
+	for index >= 0 && s[index] == ' ' {
+		index--
 	}
-	for i >= 0 && s[i] != ' ' {
-		i--
+	for index >= 0 && s[index] != ' ' {
+		index--
 		count++
 	}
 	return count
