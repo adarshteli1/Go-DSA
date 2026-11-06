@@ -22,5 +22,5 @@ func ValidParentheses(s string) bool {
 			}
 		}
 	}
-	return true
+	return len(stack) == 0
 }
