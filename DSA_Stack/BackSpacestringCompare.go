@@ -32,3 +32,43 @@ func BackSpaceStringCompare(s, t string) bool {
 
 	return true
 }
+
+/*
+LC Q. 844 – Backspace String Compare
+
+Problem Statement:
+
+Given two strings s and t, return true if they are equal when both are
+typed into empty text editors. '#' means a backspace character.
+
+Note that after backspacing an empty text, the text will continue empty.
+
+Examples:
+
+Example 1:
+
+Input:
+s = "ab#c"
+t = "ad#c"
+
+Output:
+true
+
+Example 2:
+
+Input:
+s = "ab##"
+t = "c#d#"
+
+Output:
+true
+
+Example 3:
+
+Input:
+s = "a#c"
+t = "b"
+
+Output:
+false
+*/
