@@ -7,7 +7,7 @@ func MaxConsecutiveOnes(nums []int) int {
 		if nums[i] == 1 {
 			count++
 		} else {
-			count--
+			count = 0
 		}
 		if count > maxCount {
 			maxCount = count
