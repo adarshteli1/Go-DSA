@@ -10,14 +10,14 @@ func Constructer() Mystack {
 func (this *Mystack) Push(x int) {
 	this.queue = append(this.queue, x)
 	for i := 0; i < len(this.queue)-1; i++ {
-		front := this.queue[len(this.queue)-1]
+		front := this.queue[0]
 		this.queue = this.queue[1:]
 		this.queue = append(this.queue, front)
 	}
 }
 func (this *Mystack) Pop() int {
 	top := this.queue[len(this.queue)-1]
-	this.queue = this.queue[1:]
+	this.queue = this.queue[:len(this.queue)-1]
 	return top
 }
 func (this *Mystack) Top() int {
