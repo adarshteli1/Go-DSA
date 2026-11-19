@@ -16,12 +16,12 @@ func (this *Mystack) Push(x int) {
 	}
 }
 func (this *Mystack) Pop() int {
-	top := this.queue[len(this.queue)-1]
-	this.queue = this.queue[:len(this.queue)-1]
+	top := this.queue[0]
+	this.queue = this.queue[1:]
 	return top
 }
 func (this *Mystack) Top() int {
-	return this.queue[len(this.queue)-1]
+	return this.queue[0]
 }
 func (this *Mystack) IsEmpty() bool {
 	return len(this.queue) == 0
