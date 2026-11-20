@@ -11,7 +11,7 @@ func Constructer() MyQueue {
 func (this *MyQueue) Push(x int) {
 	this.stack1 = append(this.stack1, x)
 }
-func (this *MyQueue) Pop(x int) int {
+func (this *MyQueue) Pop() int {
 	if len(this.stack2) == 0 {
 		for len(this.stack1) > 0 {
 			top := this.stack1[len(this.stack1)-1]
@@ -23,7 +23,7 @@ func (this *MyQueue) Pop(x int) int {
 	this.stack2 = this.stack2[:len(this.stack2)-1]
 	return top
 }
-func (this *MyQueue) Peek(x int) int {
+func (this *MyQueue) Peek() int {
 	if len(this.stack2) == 0 {
 		for len(this.stack1) > 0 {
 			top := this.stack1[len(this.stack1)-1]
@@ -33,6 +33,6 @@ func (this *MyQueue) Peek(x int) int {
 	}
 	return this.stack2[len(this.stack2)-1]
 }
-func (this *MyQueue) IsEmpty(x int) bool {
+func (this *MyQueue) IsEmpty() bool {
 	return len(this.stack1) == 0 && len(this.stack2) == 0
 }
