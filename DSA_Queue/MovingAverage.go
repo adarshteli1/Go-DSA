@@ -8,7 +8,7 @@ type MovingAverage struct {
 
 func Constructor3(size int) MovingAverage {
 	return MovingAverage{
-		Data:      make([]int, size),
+		Data:      make([]int, 0, size),
 		MaxWindow: size,
 		Sum:       0,
 	}
