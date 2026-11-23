@@ -1,11 +1,16 @@
 package dsarecursion
 
-func ReverseString(s []rune, l, r int) string {
-	if l >= r {
+func ReverseString(s string) string {
+	runes := []rune(s)
+	return revrseStringhelper(runes, 0, len(runes)-1)
+}
+
+func revrseStringhelper(s []rune, left, right int) string {
+	if left >= right {
 		return string(s)
 	}
 
-	s[l], s[r] = s[r], s[l]
+	s[left], s[right] = s[right], s[left]
 
-	return ReverseString(s, l+1, r-1)
+	return revrseStringhelper(s, left+1, right-1)
 }
