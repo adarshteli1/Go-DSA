@@ -11,10 +11,9 @@ func CountDigits(a int) int {
 
 //Sum  of Digits
 
-func SumOfDigits(a int, sum int) int {
+func SumOfDigits(a int) int {
 	if a < 10 {
-		return sum + a
+		return a
 	}
-	sum += a % 10
-	return SumOfDigits(a/10, sum)
+	return (a % 10) + SumOfDigits(a/10)
 }
