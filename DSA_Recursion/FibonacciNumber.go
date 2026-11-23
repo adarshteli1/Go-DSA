@@ -9,3 +9,14 @@ func FibonacciNumber(n int) int {
 	}
 	return FibonacciNumber(n-1) + FibonacciNumber(n-2)
 }
+
+/*
+
+func FibonacciNumber(n int) int {
+	if n <= 1 {
+		return n
+	}
+	return FibonacciNumber(n-1) + FibonacciNumber(n-2)
+}
+
+*/
