@@ -1,9 +1,13 @@
 package dsarecursion
 
 func ReverseArray(nums []int, s, e int) []int {
-	if s >= e {
+	return ReverseArrayHelper(nums, 0, len(nums)-1)
+}
+
+func ReverseArrayHelper(nums []int, start, end int) []int {
+	if start >= end {
 		return nums
 	}
-	nums[s], nums[e] = nums[e], nums[s]
-	return ReverseArray(nums, s+1, e-1)
+	nums[start], nums[end] = nums[end], nums[start]
+	return ReverseArrayHelper(nums, start+1, end-1)
 }
