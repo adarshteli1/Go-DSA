@@ -1,6 +1,6 @@
 package dsarecursion
 
-func ReverseArray(nums []int, s, e int) []int {
+func ReverseArray(nums []int) []int {
 	return ReverseArrayHelper(nums, 0, len(nums)-1)
 }
 
