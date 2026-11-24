@@ -1,10 +1,5 @@
 package dsaheap
 
-import (
-	"container/heap"
-	"fmt"
-)
-
 type MaxHeap []int
 
 func (h MaxHeap) Len() int {
@@ -24,19 +19,4 @@ func (h *MaxHeap) Pop() any {
 	x := old[len(old)-1]
 	*h = old[:len(old)-1]
 	return x
-}
-
-func main() {
-	h := &MaxHeap{}
-
-	heap.Init(h)
-
-	heap.Push(h, 10)
-	heap.Push(h, 30)
-	heap.Push(h, 20)
-
-	fmt.Println((*h)) 
-
-	max := heap.Pop(h).(int)
-	fmt.Println(max) // 30
 }
