@@ -31,7 +31,7 @@ func (h *Maxheap) maxheapifydown(index int) {
 	l, r := left(index), right(index)
 	childtocompare := 0
 	for l <= len(h.arr)-1 {
-		if l == childtocompare {
+		if l == len(h.arr)-1 {
 			childtocompare = l
 		} else if h.arr[l] > h.arr[r] {
 			childtocompare = l
