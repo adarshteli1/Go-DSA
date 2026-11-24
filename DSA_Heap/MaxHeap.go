@@ -9,22 +9,24 @@ func (h *Maxheap) Insert(val int) {
 	h.maxheapifyup(len(h.arr) - 1)
 }
 func (h *Maxheap) maxheapifyup(length int) {
-	for h.arr[parent(length)] < h.arr[length] {
+	for length > 0 && h.arr[parent(length)] < h.arr[length] {
 		h.swap(parent(length), length)
 		length = parent(length)
 	}
 }
 
-func (h *Maxheap) Extract() int {
+func (h *Maxheap) Extract() (int, bool) {
 	if len(h.arr) == 0 {
-		return -1
+		return 0, false
 	}
 	extracted := h.arr[0]
 	l := len(h.arr) - 1
 	h.arr[0] = h.arr[l]
 	h.arr = h.arr[:l]
-	h.maxheapifydown(0)
-	return extracted
+	if len(h.arr) > 0 {
+		h.maxheapifydown(0)
+	}
+	return extracted, true
 }
 
 func (h *Maxheap) maxheapifydown(index int) {

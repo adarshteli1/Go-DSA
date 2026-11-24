@@ -10,22 +10,25 @@ func (h *MinHeap) Insert(val int) {
 }
 
 func (h *MinHeap) minHeapifyup(length int) {
-	for h.arr[parent(length)] > h.arr[length] {
+	for length>0 && h.arr[parent(length)] > h.arr[length] {
 		h.swap(parent(length), length)
 		length = parent(length)
 	}
 }
 
-func (h *MinHeap) Extract() int {
+func (h *MinHeap) Extract() (int,bool) {
 	if len(h.arr) == 0 {
-		return -1
+		return 0,false
 	}
 	extract := h.arr[0]
 	l := len(h.arr) - 1
 	h.arr[0] = h.arr[l]
 	h.arr = h.arr[:l]
-	h.minHeapifydown(0)
-	return extract
+	if len(h.arr)>0{
+		h.minHeapifydown(0)
+	}
+		
+	return extract,true
 }
 
 func (h *MinHeap) minHeapifydown(index int) {
