@@ -22,3 +22,26 @@ func (h *MaxHeap) Pop() any {
 	*h = old[1:]
 	return x
 }
+
+type Minheap []int
+
+func (h Minheap) Len() int {
+	return len(h)
+}
+func (h Minheap) Less(i, j int) bool {
+	return h[i] < h[j]
+}
+func (h Minheap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
+}
+
+func (h *Minheap) Push(val any) {
+	*h = append(*h, val.(int))
+}
+
+func (h *Minheap) Pop() any {
+	old := *h
+	x := old[0]
+	*h = old[1:]
+	return x
+}
