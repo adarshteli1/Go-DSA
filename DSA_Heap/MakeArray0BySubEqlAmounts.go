@@ -20,5 +20,4 @@ func MakeArray0BySubtractingEqualAmounts(nums []int) int {
 		}
 	}
 	return 1 + MakeArray0BySubtractingEqualAmounts(nums)
-
 }
