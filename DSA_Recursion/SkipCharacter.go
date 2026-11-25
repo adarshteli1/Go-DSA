@@ -7,7 +7,7 @@ func skipcharacter(s, char, ans string) string {
 	if len(s) == 0 {
 		return ans
 	}
-	if string(s[0]) != string(char[0]) {
+	if s[0] != char[0] {
 		ans += string(s[0])
 	}
 	return skipcharacter(s[1:], char, ans)
