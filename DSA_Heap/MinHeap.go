@@ -4,31 +4,56 @@ type MinHeap struct {
 	arr []int
 }
 
+// Len implements [heap.Interface].
+func (h *MinHeap) Len() int {
+	panic("unimplemented")
+}
+
+// Less implements [heap.Interface].
+func (h *MinHeap) Less(i int, j int) bool {
+	panic("unimplemented")
+}
+
+// Pop implements [heap.Interface].
+func (h *MinHeap) Pop() any {
+	panic("unimplemented")
+}
+
+// Push implements [heap.Interface].
+func (h *MinHeap) Push(x any) {
+	panic("unimplemented")
+}
+
+// Swap implements [heap.Interface].
+func (h *MinHeap) Swap(i int, j int) {
+	panic("unimplemented")
+}
+
 func (h *MinHeap) Insert(val int) {
 	h.arr = append(h.arr, val)
 	h.minHeapifyup(len(h.arr) - 1)
 }
 
 func (h *MinHeap) minHeapifyup(length int) {
-	for length>0 && h.arr[parent(length)] > h.arr[length] {
+	for length > 0 && h.arr[parent(length)] > h.arr[length] {
 		h.swap(parent(length), length)
 		length = parent(length)
 	}
 }
 
-func (h *MinHeap) Extract() (int,bool) {
+func (h *MinHeap) Extract() (int, bool) {
 	if len(h.arr) == 0 {
-		return 0,false
+		return 0, false
 	}
 	extract := h.arr[0]
 	l := len(h.arr) - 1
 	h.arr[0] = h.arr[l]
 	h.arr = h.arr[:l]
-	if len(h.arr)>0{
+	if len(h.arr) > 0 {
 		h.minHeapifydown(0)
 	}
-		
-	return extract,true
+
+	return extract, true
 }
 
 func (h *MinHeap) minHeapifydown(index int) {
@@ -49,7 +74,7 @@ func (h *MinHeap) minHeapifydown(index int) {
 			index = childtocompare
 			l = left(index)
 			r = right(index)
-		}else{
+		} else {
 			return
 		}
 	}
