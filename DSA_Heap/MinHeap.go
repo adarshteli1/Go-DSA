@@ -1,47 +1,22 @@
 package dsaheap
 
-type MinHeap struct {
+type Minheap struct {
 	arr []int
 }
 
-// Len implements [heap.Interface].
-func (h *MinHeap) Len() int {
-	panic("unimplemented")
-}
-
-// Less implements [heap.Interface].
-func (h *MinHeap) Less(i int, j int) bool {
-	panic("unimplemented")
-}
-
-// Pop implements [heap.Interface].
-func (h *MinHeap) Pop() any {
-	panic("unimplemented")
-}
-
-// Push implements [heap.Interface].
-func (h *MinHeap) Push(x any) {
-	panic("unimplemented")
-}
-
-// Swap implements [heap.Interface].
-func (h *MinHeap) Swap(i int, j int) {
-	panic("unimplemented")
-}
-
-func (h *MinHeap) Insert(val int) {
+func (h *Minheap) Insert(val int) {
 	h.arr = append(h.arr, val)
 	h.minHeapifyup(len(h.arr) - 1)
 }
 
-func (h *MinHeap) minHeapifyup(length int) {
+func (h *Minheap) minHeapifyup(length int) {
 	for length > 0 && h.arr[parent(length)] > h.arr[length] {
 		h.swap(parent(length), length)
 		length = parent(length)
 	}
 }
 
-func (h *MinHeap) Extract() (int, bool) {
+func (h *Minheap) Extract() (int, bool) {
 	if len(h.arr) == 0 {
 		return 0, false
 	}
@@ -56,7 +31,7 @@ func (h *MinHeap) Extract() (int, bool) {
 	return extract, true
 }
 
-func (h *MinHeap) minHeapifydown(index int) {
+func (h *Minheap) minHeapifydown(index int) {
 	childtocompare := 0
 	l := left(index)
 	r := right(index)
@@ -80,6 +55,6 @@ func (h *MinHeap) minHeapifydown(index int) {
 	}
 }
 
-func (h *MinHeap) swap(i, j int) {
+func (h *Minheap) swap(i, j int) {
 	h.arr[i], h.arr[j] = h.arr[j], h.arr[i]
 }
