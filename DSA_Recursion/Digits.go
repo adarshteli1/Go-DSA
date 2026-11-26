@@ -4,7 +4,7 @@ package dsarecursion
 
 func CountDigits(a int) int {
 	if a < 10 {
-		return a
+		return 1
 	}
 	return 1 + CountDigits(a/10)
 }
