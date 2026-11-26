@@ -7,13 +7,14 @@ type Kth struct {
 	heap *MinHeap
 }
 
-func KthLargetElementinStream(nums []int, k int) {
+func KthLargetElementinStream(nums []int, k int) Kth {
 	h := &MinHeap{}
 	heap.Init(h)
 	obj := Kth{k: k, heap: h}
 	for _, val := range nums {
 		obj.Add(val)
 	}
+	return obj
 }
 
 func (obj *Kth) Add(val int) int {
@@ -21,5 +22,5 @@ func (obj *Kth) Add(val int) int {
 	for obj.heap.Len() > obj.k {
 		heap.Pop(obj.heap)
 	}
-	return heap.Pop(obj.heap).(int)
+	return (*obj.heap)[0]
 }
