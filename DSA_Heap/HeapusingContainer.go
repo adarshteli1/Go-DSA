@@ -23,23 +23,23 @@ func (h *MaxHeap) Pop() any {
 	return x
 }
 
-type Minheap []int
+type MinHeap []int
 
-func (h Minheap) Len() int {
+func (h MinHeap) Len() int {
 	return len(h)
 }
-func (h Minheap) Less(i, j int) bool {
+func (h MinHeap) Less(i, j int) bool {
 	return h[i] < h[j]
 }
-func (h Minheap) Swap(i, j int) {
+func (h MinHeap) Swap(i, j int) {
 	h[i], h[j] = h[j], h[i]
 }
 
-func (h *Minheap) Push(val any) {
+func (h *MinHeap) Push(val any) {
 	*h = append(*h, val.(int))
 }
 
-func (h *Minheap) Pop() any {
+func (h *MinHeap) Pop() any {
 	old := *h
 	x := old[len(old)-1]
 	*h = old[:len(old)-1]
