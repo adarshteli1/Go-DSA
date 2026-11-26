@@ -18,8 +18,8 @@ func (h *MaxHeap) Push(val any) {
 
 func (h *MaxHeap) Pop() any {
 	old := *h
-	x := old[0]
-	*h = old[1:]
+	x := old[len(old)-1]
+	*h = old[:len(old)-1]
 	return x
 }
 
@@ -41,7 +41,7 @@ func (h *Minheap) Push(val any) {
 
 func (h *Minheap) Pop() any {
 	old := *h
-	x := old[0]
-	*h = old[1:]
+	x := old[len(old)-1]
+	*h = old[:len(old)-1]
 	return x
 }
